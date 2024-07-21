@@ -4,6 +4,7 @@ import Registration from '../Pages/UserAuth/Registration'
 import Profile from '../Pages/UserAuth/Profile'
 import Login from '../Pages/UserAuth/Login'
 import Home from '../Pages/Home'
+import ForgetPass from '../Pages/UserAuth/ForgetPass'
 
 function Routers() {
   return (
@@ -13,7 +14,7 @@ function Routers() {
         <Route path='/register' element={<Registration/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/login' element={<Login/>}/>
-        
+        <Route path='/forgetpassword' element={<ForgetPass/>}/>
        </Routes>
 
     </div>

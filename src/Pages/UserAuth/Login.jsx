@@ -2,11 +2,11 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { context, server } from "../../main";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
-  const { userdata, setUserData,setLoggedIn, setIsAuthenticated } =
+  const { userdata, setUserData, setLoggedIn, setIsAuthenticated } =
     useContext(context);
 
   const [user, setUser] = useState({
@@ -42,7 +42,7 @@ function Login() {
           if (res.status === 200) {
             toast.success("Login successful", res.data);
             setIsAuthenticated(true);
-            setUserData(res.data.user)
+            setUserData(res.data.user);
             setLoggedIn(true);
             navigate("/");
           } else {
@@ -64,49 +64,60 @@ function Login() {
     }
   };
 
-  
-
-
-
   return (
     <>
-      <h1 className="text-3xl text-[green] font-bold">User Login</h1>
-
       <form
         action=""
         method="POST"
         onSubmit={submithandler}
-        className="flex flex-col w-[30%] justify-items-stretch"
+        
       >
-        <label htmlFor="email" className="text-[25px]">
-          Email
-        </label>
-        <input
-          className="border-2 border-black h-[40px]"
-          onChange={handleChange}
-          name="email"
-          value={user.email}
-          type="email"
-          id="email"
-        />
-        <label htmlFor="password" className="text-[25px]">
-          Password
-        </label>
-        <input
-          className="border-2 border-black h-[40px]"
-          onChange={handleChange}
-          name="password"
-          value={user.password}
-          type="password"
-          id="password"
-        />
+        <div className="mx-auto my-36 flex h-[300px] w-[350px] flex-col border-2 bg-white text-black shadow-xl">
+        <div className="mx-8 mt-7 mb-1 flex flex-row justify-start space-x-2">
+          <div className="h-7 w-3 bg-[#3898b2]"></div>
+          <div className="w-3 text-center font-sans text-xl font-bold">
+            <h1>Login</h1>
+          </div>
+        </div>
+        <div className="flex flex-col items-center">
+          <input
+            className="my-2 w-72 border p-2"
+            onChange={handleChange}
+            name="email"
+            value={user.email}
+            type="email"
+            id="email"
+            placeholder="Email"
+            required
+          />
+          <input
+            className="my-2 w-72 border p-2"
+            onChange={handleChange}
+            name="password"
+            value={user.password}
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div className="my-2 flex justify-center">
+          <button type="submit" className="w-72 border text-white tracking-wider bg-[#3898b2] p-2 font-sans" value="submit">Login</button>
+        </div>
+        <div className="mx-7 my-3 flex justify-between text-sm font-semibold">
+          <div>
+            <Link to='/forgetpassword'>Forget Password</Link>
+          </div>
+          <div>
+            <Link to='/register' className="underline underline-offset-2">Signup</Link>
+          </div>
+        </div>
+      </div>
 
-        <input
-          type="submit"
-          className="text-[25px] border border-green-700 w-[130px] text-white bg-green-800"
-          value="Login"
-        />
+
       </form>
+
+        
     </>
   );
 }

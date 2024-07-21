@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 export const server = "http://localhost:4000";
 
 export const context = createContext({ isAuthenticated: false });
+import { ThemeProvider } from "@material-tailwind/react";
 
 const Contextwrapper =()=>{
     
@@ -35,7 +36,9 @@ const Contextwrapper =()=>{
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <React.StrictMode>
+    <ThemeProvider>
     <Contextwrapper/>
+    </ThemeProvider>
     </React.StrictMode>
   </BrowserRouter>
 );

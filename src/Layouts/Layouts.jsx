@@ -5,6 +5,7 @@ import Routers from '../Router/Routers'
 import { context, server } from '../main'
 import axios from 'axios'
 import Loader from '../Component/Loader'
+import Footer from '../Component/Footer'
 
 function Layouts() {
 
@@ -40,9 +41,10 @@ function Layouts() {
         <Routers/>
         
       }
-      
+
       {/* Footer  */}
 
+      <Footer />
 
 
     </div>
