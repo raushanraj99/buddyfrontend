@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { server } from "../../main";
 import Headers from "../../Component/Headers";
 import { Link, useNavigate } from "react-router-dom";
+
 function Registration() {
   const navigate = useNavigate();
 
@@ -20,6 +21,15 @@ function Registration() {
       [name]: value,
     });
   };
+
+  // otp login
+  const otpPopUp = () => (
+    <div>
+      otp testt Lorem ipsum, dolor sit amet consectetur adipisicing elit. At ab
+      qui similique aliquid adipisci repellendus nam illum laboriosam
+      voluptatibus? Obcaecati.
+    </div>
+  );
 
   const submithandler = async (e) => {
     e.preventDefault();
@@ -54,10 +64,7 @@ function Registration() {
 
   return (
     <>
-      <form
-        method="POST"
-        onSubmit={submithandler}
-      >
+      <form method="POST" onSubmit={submithandler}>
         <div class="mx-auto my-20 flex h-[350px] w-[350px] flex-col border-2 bg-white text-black shadow-xl">
           <div class="mx-8 mt-7 mb-1 flex flex-row justify-start space-x-2">
             <div class="h-7 w-3 bg-[#3898b2]"></div>
@@ -109,13 +116,14 @@ function Registration() {
               <h1>Already have an account </h1>
             </div>
             <div>
-              <Link to='/login' class="underline underline-offset-2">SignIn</Link>
+              <Link to="/login" class="underline underline-offset-2">
+                SignIn
+              </Link>
             </div>
           </div>
         </div>
-
-       
       </form>
+      
     </>
   );
 }

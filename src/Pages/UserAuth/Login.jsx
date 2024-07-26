@@ -2,11 +2,11 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { context, server } from "../../main";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
-  const { userdata, setUserData, setLoggedIn, setIsAuthenticated } =
+  const { setLoggedIn, setIsAuthenticated } =
     useContext(context);
 
   const [user, setUser] = useState({
@@ -26,6 +26,7 @@ function Login() {
     e.preventDefault();
     const { email, password } = user;
     if (email && password) {
+      // setLoading(true)
       await axios
         .post(
           `${server}/users/login`,
@@ -39,27 +40,33 @@ function Login() {
         )
         .then((res) => {
           console.log("response : ", res);
-          if (res.status === 200) {
-            toast.success("Login successful", res.data);
+          if (res?.status === 200) {
             setIsAuthenticated(true);
             setUserData(res.data.user);
             setLoggedIn(true);
-            navigate("/");
+            console.log("aa gye ")
+            toast.success("Login successful", res?.data);
+            redirect('/profile')
+            // navigate("/profile");
+            
           } else {
             toast.error("Email password does match", res.data);
+
           }
         })
         .catch((err) => {
-          const msg = err.response.data.message;
-
-          if (err.request.status == 401) {
+          const msg = err.response?.data?.message;
+          // console.log("test ;;;")
+          // setLoading(false);
+          if (err?.request.status == 401) {
             toast.error(msg);
           } else {
-            toast.error("Unauthorized access");
+            toast.error(err.message);
             console.log("user registration Error (Unauthorized access) ", err);
           }
         });
-    } else {
+      } else {
+      // setLoading(false);
       toast.error("input field can't be blank");
     }
   };
@@ -70,7 +77,7 @@ function Login() {
         action=""
         method="POST"
         onSubmit={submithandler}
-        
+
       >
         <div className="mx-auto my-36 flex h-[300px] w-[350px] flex-col border-2 bg-white text-black shadow-xl">
         <div className="mx-8 mt-7 mb-1 flex flex-row justify-start space-x-2">
@@ -112,7 +119,7 @@ function Login() {
             <Link to='/register' className="underline underline-offset-2">Signup</Link>
           </div>
         </div>
-      </div>
+      </div> 
 
 
       </form>

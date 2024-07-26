@@ -15,6 +15,9 @@ const Contextwrapper =()=>{
   const [userdata,setUserData] = useState({})
   const [loading,setLoading] = useState(false);
   const [loggedin,setLoggedIn] = useState(false);
+  const [isOtpSend,setIsOtpSend] = useState(false);
+  const [otpValue,setOtpValue] = useState();
+  const [resetOtpEmail,setResetOtpEmail] = useState("");
 
   return(
     <context.Provider value={{
@@ -25,7 +28,13 @@ const Contextwrapper =()=>{
       loading, 
       setLoading,
       loggedin,
-      setLoggedIn
+      setLoggedIn,
+      isOtpSend,
+      setIsOtpSend,
+      otpValue,
+      setOtpValue,
+      resetOtpEmail,
+      setResetOtpEmail
     }}>
       <App />
     </context.Provider>

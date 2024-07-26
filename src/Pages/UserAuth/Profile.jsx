@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { context } from '../../main';
 import Loader from '../../Component/Loader';
+import { Link } from 'react-router-dom';
 
 function Profile() {
 
@@ -18,10 +19,15 @@ function Profile() {
       {
         loading?<Loader/>:
         <div>
-          <p>{userdata?.name}</p>
-          <p>{userdata?.email}</p>
+          Name : <span>{userdata?.name}</span> <br />
+         User Id : <span>{userdata?._id}</span> <br />
+         Email :  <span>{userdata?.email}</span> 
         </div>
       }
+      <br />
+      Reset Password : <a href={`/resetpassword/${userdata?._id}`} className='w-72 border text-white tracking-wider bg-[#3898b2] p-2 font-sans' type='submit'>Reset</a>
+
+
     </h3>
 
       <br />

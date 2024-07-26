@@ -1,29 +1,12 @@
 import React, { useContext, useState } from "react";
-import { context, server } from "../main";
-import axios from "axios";
-import toast from "react-hot-toast";
+import { context} from "../main";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import Logout from "../Pages/UserAuth/Logout";
 
 function Headers() {
   const { isAuthenticated, setIsAuthenticated, setLoggedIn } =
     useContext(context);
-    const navigate = useNavigate();
 
-  const logouthandler = () => {
-    axios
-      .get(`${server}/users/logout`, {
-        withCredentials: true,
-      })
-      .then((res) => {
-        toast.success("Logged out successful", res);
-        setLoggedIn(false);
-        setIsAuthenticated(false);
-        navigate('/login');
-      })
-      .catch((err) => {
-        console.log("Logout Error ", err);
-      });
-  };
 
   const navLinks = [
     {
@@ -117,14 +100,7 @@ function Headers() {
 
               {/* login logout  */} 
               {isAuthenticated ? (
-                <div>
-                  <input
-                    type="submit"
-                    onClick={logouthandler}
-                    className="w-32 border bg-[#e60d0d] p-2 font-sans"
-                    value="Logout"
-                  />
-                </div>
+                <Logout/>
               ) : (
                 <div className="">
                   <Link

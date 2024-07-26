@@ -13,7 +13,6 @@ function Layouts() {
 
   useEffect(()=>{
     setLoading(true)
-    console.log("working in layouts")
     axios.get(`${server}/users/userprofile`,{
       withCredentials:true
     }).then((res)=>{
