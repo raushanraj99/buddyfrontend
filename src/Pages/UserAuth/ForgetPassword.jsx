@@ -54,7 +54,7 @@ console.log("otp ",otpValue, " email : ",email);
 
 
   return (
-    <>ForgetPassword
+    <>
 
 {
   isOtpSend?

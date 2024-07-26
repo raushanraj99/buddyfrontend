@@ -2,10 +2,14 @@ import React, { useContext, useState } from 'react'
 import { context, server } from '../../../main';
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function SetNewPassword(props) {
 
+  const {setIsOtpSend} = useContext(context);
+
   const {resetOtpEmail} = useContext(context);
+  const navigation = useNavigate();
 
    const [user,setUser] = useState({
       newPassword : "",
@@ -36,14 +40,13 @@ function SetNewPassword(props) {
         else{
           // axios call put requirest
           await axios.put(`${server}/users/password_update`,{
+            email:resetOtpEmail,
             newPassword:user.newPassword
-          },{
-            headers:{
-              "Content-Type":"application/json"
-            }
           }).then((res)=>{
             console.log("Password is set : ",res);
             toast.success(res?.data.message);
+            setIsOtpSend(false);
+            navigation('/login')
           }).catch((error)=>{
             console.log("error message in set new password",error);
             toast.error("unable to set new password")

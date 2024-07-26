@@ -3,6 +3,7 @@ import { context, server } from "../../../main";
 import axios from "axios";
 import SetNewPassword from "./SetNewPassword";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function Otpverify() {
 
@@ -26,13 +27,11 @@ const otpVerify = (e)=>{
   total = parseInt(total);
   console.log("total : ",total," otpValue : ",otpValue);
   if(total===otpValue){
-    console.log("set new password");
-    console.log("email send : otp pagae ; ",resetOtpEmail);
     navigate('/setnewpassword')
     
   }
   else{
-    console.log("OTP does match");
+    toast.error("Incorrect OTP")
     
   }
 }
@@ -50,7 +49,7 @@ const otpVerify = (e)=>{
                 <p>Email Verification</p>
               </div>
               <div className="flex flex-row text-sm font-medium text-gray-400">
-                <p>We have sent a code to your email : b**k@gmail.com {resetOtpEmail} .</p>
+                <p>We have sent a code to your email : {resetOtpEmail} .</p>
               </div>
             </div>
 

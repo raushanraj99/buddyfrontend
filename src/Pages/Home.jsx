@@ -193,30 +193,30 @@ const tourplace = [
         </Carousel>
       </div>
       {/* search bar carousel */}
-      <div class="relative w-full max-w-xl mx-auto bg-white rounded-full mt-10">
+      <div className="relative w-full max-w-xl mx-auto bg-white rounded-full mt-10">
         <form action="">
           <input
             placeholder="e.g. kolkata"
-            class="rounded-full w-full h-16 bg-transparent py-2 pl-8 pr-32 outline-none border-2 border-gray-100 shadow-md hover:outline-none focus:ring-[#39a4c1]-200 focus:border-[#39a4c1]-200"
+            className="rounded-full w-full h-16 bg-transparent py-2 pl-8 pr-32 outline-none border-2 border-gray-100 shadow-md hover:outline-none focus:ring-[#39a4c1]-200 focus:border-[#39a4c1]-200"
             type="text"
             name="query"
             id="query"
           />
           <button
             type="submit"
-            class="absolute inline-flex items-center h-10 px-4 py-2 text-sm text-white transition duration-150 ease-in-out rounded-full outline-none right-3 top-3 bg-[#39a4c1] sm:px-6 sm:text-base sm:font-medium hover:bg-[#39a4c1]-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
+            className="absolute inline-flex items-center h-10 px-4 py-2 text-sm text-white transition duration-150 ease-in-out rounded-full outline-none right-3 top-3 bg-[#39a4c1] sm:px-6 sm:text-base sm:font-medium hover:bg-[#39a4c1]-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
           >
             <svg
-              class="-ml-0.5 sm:-ml-1 mr-2 w-4 h-4 sm:h-5 sm:w-5"
+              className="-ml-0.5 sm:-ml-1 mr-2 w-4 h-4 sm:h-5 sm:w-5"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               ></path>
             </svg>
@@ -228,16 +228,16 @@ const tourplace = [
 
       <ul
         role="list"
-        class="grid grid-cols-1 gap-6 w-[95%] mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-5"
+        className="grid grid-cols-1 gap-6 w-[95%] mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-5"
       >
         {buddylist.map((data) => (
           <li
             key={data.id}
-            class="col-span-1  flex flex-col divide-y divide-gray-200 rounded-lg bg-[white]-500 text-center border-[#2c9dbc] shadow-md shadow-[#39a4c1] dark:bg-[#39a4c1] dark:border-[#39a4c1]"
+            className="col-span-1  flex flex-col divide-y divide-gray-200 rounded-lg bg-[white]-500 text-center border-[#2c9dbc] shadow-md shadow-[#39a4c1] dark:bg-[#39a4c1] dark:border-[#39a4c1]"
           >
-            <div class="flex flex-1 flex-col p-8">
+            <div className="flex flex-1 flex-col p-8">
               <img
-                class="mx-auto h-32 w-32 flex-shrink-0 rounded-full border-2 border-[#28a9dc] "
+                className="mx-auto h-32 w-32 flex-shrink-0 rounded-full border-2 border-[#28a9dc] "
                 src="https://scholar.googleusercontent.com/citations?view_op=view_photo&user=yQ-kKmUAAAAJ&citpid=1"
                 alt=""
               />
@@ -245,35 +245,35 @@ const tourplace = [
                 className="h-4 w-4 rounded-lg absolute shadow-md shadow-[#9a9a9a]"
                 style={{ backgroundColor: data.isActive ? "green" : "red" }}
               ></span>
-              <h3 class="mt-6 text-sm font-medium text-gray-900">
+              <h3 className="mt-6 text-sm font-medium text-gray-900">
                 {data.name}
               </h3>
-              <dl class="mt-1 flex flex-grow flex-col justify-between">
-                <dt class="sr-only">Title</dt>
-                <dd class="text-sm text-gray-500">{data.experienceLevel}</dd>
-                <dt class="sr-only">Location</dt>
-                <dd class="mt-3 ">
-                  <span class="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 me-3">
+              <dl className="mt-1 flex flex-grow flex-col justify-between">
+                <dt className="sr-only">Title</dt>
+                <dd className="text-sm text-gray-500">{data.experienceLevel}</dd>
+                <dt className="sr-only">Location</dt>
+                <dd className="mt-3 ">
+                  <span className="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 me-3">
                     {data.location.city}
                   </span>
                 </dd>
               </dl>
             </div>
             <div>
-              <div class="-mt-px flex divide-x divide-gray-200 ">
-                <div class="flex w-0 flex-1">
+              <div className="-mt-px flex divide-x divide-gray-200 ">
+                <div className="flex w-0 flex-1">
                   <Link
                     to="#"
-                    class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
+                    className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
                   >
                     
                     Message
                   </Link>
                 </div>
-                <div class="-ml-px flex w-0 flex-1">
+                <div className="-ml-px flex w-0 flex-1">
                   <Link
                     to="#"
-                    class="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
+                    className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
                   >
     
                     Book
@@ -292,23 +292,23 @@ const tourplace = [
       {
         tourplace.map((place,index)=>
       <li key={index}
-        class="p-5 col-span-1 max-w-lg border border-indigo-300 rounded-2xl hover:shadow-xl hover:shadow-indigo-50 flex flex-col items-center"
+        className="p-5 col-span-1 max-w-lg border border-indigo-300 rounded-2xl hover:shadow-xl hover:shadow-indigo-50 flex flex-col items-center"
         href="#"
       >
         
         <img
           src={place.img}
-          class="shadow rounded-lg overflow-hidden border"
+          className="shadow rounded-lg overflow-hidden border"
         />
-        <div class="mt-5">
-          <h4 class="font-bold text-xl">{place.tourPlace}</h4>
-          <p class="mt-2 text-gray-600">
+        <div className="mt-5">
+          <h4 className="font-bold text-xl">{place.tourPlace}</h4>
+          <p className="mt-2 text-gray-600">
             {place.aboutPlace}
           </p>
-          <div class="mt-4">
+          <div className="mt-4">
             <button
               type="button"
-              class="inline-flex items-center rounded-md border border-transparent bg-gray-800 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-gray-900"
+              className="inline-flex items-center rounded-md border border-transparent bg-gray-800 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-gray-900"
             >
               See map
             </button>
