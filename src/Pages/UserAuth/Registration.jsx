@@ -65,65 +65,67 @@ function Registration() {
   return (
     <>
       <form method="POST" onSubmit={submithandler}>
-        <div class="mx-auto my-20 flex h-[350px] w-[350px] flex-col border-2 bg-white text-black shadow-xl">
-          <div class="mx-8 mt-7 mb-1 flex flex-row justify-start space-x-2">
-            <div class="h-7 w-3 bg-[#3898b2]"></div>
-            <div class="w-3 text-center font-sans text-xl font-bold">
+        <div className="mx-auto my-20 flex h-[350px] w-[350px] flex-col border-2 bg-white text-black shadow-xl">
+          <div className="mx-8 mt-7 mb-1 flex flex-row justify-start space-x-2">
+            <div className="h-7 w-3 bg-[#3898b2]"></div>
+            <div className="w-3 text-center font-sans text-xl font-bold">
               <h1>Register</h1>
             </div>
           </div>
-          <div class="flex flex-col items-center">
+          <div className="flex flex-col items-center">
             <input
-              class="my-2 w-72 border p-2"
+              className="my-2 w-72 border p-2"
               onChange={handleChange}
               type="text"
               name="name"
               value={user.name}
               id="name"
+              autoComplete="username"
               placeholder="Your Name"
               required
             />
             <input
-              class="my-2 w-72 border p-2"
+              className="my-2 w-72 border p-2"
               onChange={handleChange}
               name="email"
               value={user.email}
+              autoComplete="username"
               type="email"
               id="email"
               placeholder="Email"
               required
             />
             <input
-              class="my-2 w-72 border p-2"
+              className="my-2 w-72 border p-2"
               onChange={handleChange}
               name="password"
               value={user.password}
+              autoComplete="current-password"
               type="password"
               id="password"
               placeholder="Password"
               required
             />
           </div>
-          <div class="my-2 flex justify-center">
+          <div className="my-2 flex justify-center">
             <input
-              class="w-72 border bg-[#3898b2] p-2 font-sans"
+              className="w-72 border bg-[#3898b2] p-2 font-sans"
               type="submit"
               value="Submit"
             />
           </div>
-          <div class="mx-7 my-3 flex justify-between text-sm font-semibold">
+          <div className="mx-7 my-3 flex justify-between text-sm font-semibold">
             <div>
               <h1>Already have an account </h1>
             </div>
             <div>
-              <Link to="/login" class="underline underline-offset-2">
+              <Link to="/login" className="underline underline-offset-2">
                 SignIn
               </Link>
             </div>
           </div>
         </div>
       </form>
-      
     </>
   );
 }

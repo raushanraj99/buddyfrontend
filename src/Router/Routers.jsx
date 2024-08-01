@@ -10,19 +10,25 @@ import Logout from "../Pages/UserAuth/Logout";
 import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import ForgetPassword from "../Pages/UserAuth/ForgetPassword";
 import SetNewPassword from "../Pages/UserAuth/OTP Verification/SetNewPassword";
+import Buddy from '../Pages/MenuPages/Buddy'
 
 function Routers() {
-  const { isAuthenticated, setIsAuthenticated } = useContext(context);
+  const { isAuthenticated } = useContext(context);
 
   return (
-    <div>
+    <>
       <Routes>
+        {/* complete authentication  */}
         <Route path="/" element={<Home />} />
-        <Route path="/profile" element={isAuthenticated?<Profile />: <Navigate to='/login' replace />} />
+        <Route
+          path="/profile"
+          element={
+            isAuthenticated ? <Profile /> : <Navigate to="/login" replace />
+          }
+        />
 
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/forgetpassword" element={<ForgetPassword />} >
-        </Route>
+        <Route path="/logout" element={ isAuthenticated? <Logout />:<Navigate to="/" replace />} />
+        <Route path="/forgetpassword" element={<ForgetPassword />}></Route>
         <Route path="/setnewpassword" element={<SetNewPassword />} />
         <Route path="/resetpassword/:id" element={<ResetPassword />} />
         <Route
@@ -39,10 +45,17 @@ function Routers() {
           path="/login"
           element={isAuthenticated ? <Navigate to="/" replace /> : <Login />}
         />
-
         <Route path="/*" element={<PageNotFound />} />
+
+        {/* Native Buddy lists  */}
+
+         
+          <Route path="/buddy" element={<Buddy />} />
+
+
+
       </Routes>
-    </div>
+    </>
   );
 }
 

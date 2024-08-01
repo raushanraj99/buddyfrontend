@@ -130,40 +130,43 @@ function Home() {
     },
   ];
 
-const tourplace = [
-  {
-    tourPlace: "Himalayan Hills",
-    aboutPlace: "The Himalayan Hills are known for their stunning natural beauty and serene environment. A perfect destination for trekking and nature walks.",
-    img: "https://loremflickr.com/800/600/mountain",
-    items: ["Trekking gear", "Warm clothing", "Camera"]
-  },
-  {
-    tourPlace: "Alps Mountain",
-    aboutPlace: "The Alps are the highest and most extensive mountain range system in Europe. Famous for skiing and mountaineering.",
-    img: "https://loremflickr.com/800/600/vehicle",
-    items: ["Ski equipment", "Snow boots", "Warm jacket"]
-  },
-  {
-    tourPlace: "Rocky Mountains",
-    aboutPlace: "The Rocky Mountains stretch from Canada to the USA. They offer breathtaking views and numerous outdoor activities like hiking and rock climbing.",
-    img: "https://loremflickr.com/800/600/hills",
-    items: ["Hiking boots", "Climbing gear", "Map"]
-  },
-  {
-    tourPlace: "Andes Mountains",
-    aboutPlace: "The Andes is the longest continental mountain range in the world. It is known for its diverse wildlife and beautiful landscapes.",
-    img: "https://loremflickr.com/800/600/tour",
-    items: ["Backpack", "Sunscreen", "Binoculars"]
-  },
-  {
-    tourPlace: "Appalachian Mountains",
-    aboutPlace: "The Appalachian Mountains are known for their picturesque scenery and rich history. Ideal for hiking and exploring nature.",
-    img: "https://loremflickr.com/800/600/cat",
-    items: ["Hiking poles", "Water bottle", "Trail snacks"]
-  }
-]
-
- 
+  const tourplace = [
+    {
+      tourPlace: "Himalayan Hills",
+      aboutPlace:
+        "The Himalayan Hills are known for their stunning natural beauty and serene environment. A perfect destination for trekking and nature walks.",
+      img: "https://loremflickr.com/800/600/mountain",
+      items: ["Trekking gear", "Warm clothing", "Camera"],
+    },
+    {
+      tourPlace: "Alps Mountain",
+      aboutPlace:
+        "The Alps are the highest and most extensive mountain range system in Europe. Famous for skiing and mountaineering.",
+      img: "https://loremflickr.com/800/600/vehicle",
+      items: ["Ski equipment", "Snow boots", "Warm jacket"],
+    },
+    {
+      tourPlace: "Rocky Mountains",
+      aboutPlace:
+        "The Rocky Mountains stretch from Canada to the USA. They offer breathtaking views and numerous outdoor activities like hiking and rock climbing.",
+      img: "https://loremflickr.com/800/600/hills",
+      items: ["Hiking boots", "Climbing gear", "Map"],
+    },
+    {
+      tourPlace: "Andes Mountains",
+      aboutPlace:
+        "The Andes is the longest continental mountain range in the world. It is known for its diverse wildlife and beautiful landscapes.",
+      img: "https://loremflickr.com/800/600/tour",
+      items: ["Backpack", "Sunscreen", "Binoculars"],
+    },
+    {
+      tourPlace: "Appalachian Mountains",
+      aboutPlace:
+        "The Appalachian Mountains are known for their picturesque scenery and rich history. Ideal for hiking and exploring nature.",
+      img: "https://loremflickr.com/800/600/cat",
+      items: ["Hiking poles", "Water bottle", "Trail snacks"],
+    },
+  ];
 
   return (
     <div>
@@ -222,7 +225,6 @@ const tourplace = [
             </svg>
             Search
           </button>
-        
         </form>
       </div>
 
@@ -250,7 +252,9 @@ const tourplace = [
               </h3>
               <dl className="mt-1 flex flex-grow flex-col justify-between">
                 <dt className="sr-only">Title</dt>
-                <dd className="text-sm text-gray-500">{data.experienceLevel}</dd>
+                <dd className="text-sm text-gray-500">
+                  {data.experienceLevel}
+                </dd>
                 <dt className="sr-only">Location</dt>
                 <dd className="mt-3 ">
                   <span className="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 me-3">
@@ -266,7 +270,6 @@ const tourplace = [
                     to="#"
                     className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
                   >
-                    
                     Message
                   </Link>
                 </div>
@@ -275,7 +278,6 @@ const tourplace = [
                     to="#"
                     className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
                   >
-    
                     Book
                   </Link>
                 </div>
@@ -288,37 +290,31 @@ const tourplace = [
       {/* locations  */}
       <h1 className="text-center text-3xl mt-10">Locations</h1>
 
-      <ul className="list grid grid-cols-1 gap-6 w-[95%] mx-auto sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-5" >
-      {
-        tourplace.map((place,index)=>
-      <li key={index}
-        className="p-5 col-span-1 max-w-lg border border-indigo-300 rounded-2xl hover:shadow-xl hover:shadow-indigo-50 flex flex-col items-center"
-        href="#"
-      >
-        
-        <img
-          src={place.img}
-          className="shadow rounded-lg overflow-hidden border"
-        />
-        <div className="mt-5">
-          <h4 className="font-bold text-xl">{place.tourPlace}</h4>
-          <p className="mt-2 text-gray-600">
-            {place.aboutPlace}
-          </p>
-          <div className="mt-4">
-            <button
-              type="button"
-              className="inline-flex items-center rounded-md border border-transparent bg-gray-800 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-gray-900"
-            >
-              See map
-            </button>
-          </div>
-        </div>
-      </li>
- )
-}
-        
-
+      <ul className="list grid grid-cols-1 gap-6 w-[95%] mx-auto sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-5">
+        {tourplace.map((place, index) => (
+          <li
+            key={index}
+            className="p-5 col-span-1 max-w-lg border border-indigo-300 rounded-2xl hover:shadow-xl hover:shadow-indigo-50 flex flex-col items-center"
+            href="#"
+          >
+            <img
+              src={place.img}
+              className="shadow rounded-lg overflow-hidden border"
+            />
+            <div className="mt-5">
+              <h4 className="font-bold text-xl">{place.tourPlace}</h4>
+              <p className="mt-2 text-gray-600">{place.aboutPlace}</p>
+              <div className="mt-4">
+                <button
+                  type="button"
+                  className="inline-flex items-center rounded-md border border-transparent bg-gray-800 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-gray-900"
+                >
+                  See map
+                </button>
+              </div>
+            </div>
+          </li>
+        ))}
       </ul>
     </div>
   );

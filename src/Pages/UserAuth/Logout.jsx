@@ -5,27 +5,25 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 function Logout() {
-
-   const { isAuthenticated, setIsAuthenticated, setLoggedIn } =
+  const { isAuthenticated, setIsAuthenticated, setLoggedIn } =
     useContext(context);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-   const logouthandler = () => {
-      axios
-        .get(`${server}/users/logout`, {
-          withCredentials: true,
-        })
-        .then((res) => {
-          toast.success("Logged out successful", res);
-          setLoggedIn(false);
-          setIsAuthenticated(false);
-          navigate('/login');
-        })
-        .catch((err) => {
-          console.log("Logout Error ", err);
-        });
-    };
-
+  const logouthandler = () => {
+    axios
+      .get(`${server}/users/logout`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        toast.success("Logged out successful", res);
+        setLoggedIn(false);
+        setIsAuthenticated(false);
+        navigate("/login");
+      })
+      .catch((err) => {
+        console.log("Logout Error ", err);
+      });
+  };
 
   return (
     <div>
